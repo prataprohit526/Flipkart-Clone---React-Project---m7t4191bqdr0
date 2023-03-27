@@ -10,17 +10,18 @@ import supabase from "./supabase";
 import { useDispatch } from "react-redux";
 import { setUser } from "./slices/userSlice";
 import Navbar from "./Component/Navbar/Navbar";
+import Footer from "./Component/Footer/Footer";
 const App = () => {
   const dispatch = useDispatch();
 
-  // const getUser = async () => {
-  //   const { data, error } = await supabase.auth.getSession();
-  //   dispatch(setUser(data.session.user));
-  // };
+  const getUser = async () => {
+    const { data, error } = await supabase.auth.getSession();
+    dispatch(setUser(data.session.user));
+  };
 
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <div>
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

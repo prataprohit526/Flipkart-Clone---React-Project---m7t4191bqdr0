@@ -1,10 +1,7 @@
 import React from "react";
-// import BannerCarousel from "../../Components/BannerCarousel/BannerCarousel";
 import BannerCarousel from "../../Component/BannerCarousel/BannerCarousel";
-// import CategoryBar from "../../Components/CategoryBar/CategoryBar";
 import CategoryBar from "../../Component/CategoryBar/CategoryBar";
-// import LoginModel from "../../Components/LoginModel/LoginModel";
-// import ProductCarousel from "../../Components/CategoryCarousel/CategoryCarousel";
+// import LoginModel from "../../Component/LoginModel/LoginModel";
 import ProductCarousel from "../../Component/CategoryCarousel/CategoryCarousel";
 import { CategoryBarData } from "../../Datas";
 import { CarouselData } from "../../Datas";

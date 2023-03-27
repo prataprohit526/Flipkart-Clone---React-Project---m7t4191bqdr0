@@ -3,7 +3,6 @@ import "./Navbar.css";
 import { IoSearch } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdKeyboardArrowDown } from "react-icons/md";
-// import LoginModel from "../../Components/LoginModel/LoginModel";
 import LoginModel from "../LoginModel/LoginModel";
 import { useState } from "react";
 import { Link } from "react-router-dom";
