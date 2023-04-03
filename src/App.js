@@ -1,40 +1,35 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "./App.css";
-import Home from "./Pages/Home/Home";
-import { Route, Routes } from "react-router-dom";
-import Products from "./Pages/Products/Products";
-import ProductDetails from "./Pages/ProductDetails/ProductDetails";
-import Cart from "./Pages/Cart/Cart";
-import supabase from "./supabase";
-import { useDispatch } from "react-redux";
-import { setUser } from "./slices/userSlice";
-import Navbar from "./Component/Navbar/Navbar";
-import Footer from "./Component/Footer/Footer";
-const App = () => {
-  const dispatch = useDispatch();
+import { Box } from "@mui/material";
 
-  const getUser = async () => {
-    const { data, error } = await supabase.auth.getSession();
-    dispatch(setUser(data.session.user));
-  };
+// import Header from "./components/header/Header";
+import Header from "./Components/header/Header";
+// import Home from "./components/home/Home";
+import Home from "./Components/Home/Home";
+import Cart from "./Components/cart/Cart";
+// import DetailView from "./components/details/DetailView";
+import DetailView from "./Components/details/DetailView";
+import Shipping from "./Components/shipping/Shipping";
+import Context from "./context/Context";
 
-  useEffect(() => {
-    getUser();
-  }, []);
-
+//=======================================function starts=======================================
+function App() {
   return (
-    <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/productdetails/:id" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-      <Footer />
-    </div>
+    <Context>
+      <Router>
+        <Header />
+        <Box style={{ marginTop: 54 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products/:id" element={<DetailView />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/shipping" element={<Shipping />} />
+          </Routes>
+        </Box>
+      </Router>
+    </Context>
   );
-};
+}
 
 export default App;
