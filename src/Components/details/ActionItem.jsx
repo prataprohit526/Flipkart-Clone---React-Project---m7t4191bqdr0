@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, styled } from "@mui/material";
 
@@ -6,6 +6,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../feature/cartSlice";
+import { AccountContext } from "../../context/Context.js";
 
 const LeftContainer = styled(Box)(({ theme }) => ({
   minWidth: "40%",
@@ -40,9 +41,25 @@ const StyledButton = styled(Button)(({ theme }) => ({
 const ActionItem = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { open, setOpen } = useContext(AccountContext);
 
   const goToCart = () => {
-    navigate("/cart");
+    let user = localStorage.getItem("signup"); // null
+    if (user) {
+      navigate("/cart");
+    } else {
+      setOpen(true);
+    }
+  };
+  const AddToCart = () => {
+    /* if user is not logged in we will redirect him to the login 
+    modal and not let him add the item to cart*/
+    let user = localStorage.getItem("signup"); // null
+    if (user) {
+      dispatch(addToCart(props.itemData));
+    } else {
+      setOpen(true);
+    }
   };
   return (
     <LeftContainer>
@@ -50,7 +67,7 @@ const ActionItem = (props) => {
         <Image src={props.itemData.image} alt="productImage" />
       </Box>
       <StyledButton
-        onClick={() => dispatch(addToCart(props.itemData))}
+        onClick={AddToCart}
         style={{ marginRight: 10, background: "#ff9f00" }}
         variant="contained"
       >

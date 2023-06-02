@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartTotal } from "../../feature/cartSlice";
 
 import Profile from "./Profile";
-
+import { AccountContext } from "../../context/Context.js";
 const Container = styled(Link)(({ theme }) => ({
   display: "flex",
   [theme.breakpoints.down("sm")]: {
@@ -55,8 +55,10 @@ const CustomButton = () => {
   //==================localStrorage
   const [accountPresent, setAccountPresent] = useState(false);
   const localUserName = localStorage.getItem("signup");
-
-  const [open, setOpen] = useState(false);
+  console.log(AccountContext);
+  const { open, setOpen } = useContext(AccountContext);
+  // console.log("look here", ctx);
+  // const [open, setOpen] = useState(false);
 
   const openDialog = () => {
     setOpen(true);

@@ -48,7 +48,10 @@ const Search = () => {
   const getText = (text) => {
     setText(text);
   };
-
+  // if (productData == "") {
+  //   alert("Not found");
+  // }
+  console.log(productData);
   return (
     <SearchContainer>
       <InputSearchBase

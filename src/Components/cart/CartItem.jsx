@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeItem,
+  removeAllItems,
   decreaseItemQuantity,
   increaseItemQuantity,
 } from "../../feature/cartSlice";
@@ -87,7 +88,7 @@ const CartItem = ({ item, totalQuantity, totalprice }) => {
       </LeftComponent>
       <Box style={{ margin: 20 }}>
         <Typography>{item.title}</Typography>
-        {/* <Typography>{addEllipsis(item.title)}</Typography> */}
+
         <SmallText>
           Seller:RetailNet
           <span>
@@ -104,6 +105,7 @@ const CartItem = ({ item, totalQuantity, totalprice }) => {
         </Typography>
         <Box>{item.quantity}</Box>
         <Remove onClick={() => dispatch(removeItem(item.id))}>Remove</Remove>
+        {/* <Remove onClick={() => dispatch(removeAllItems())}>Remove All</Remove> */}
       </Box>
     </Component>
   );

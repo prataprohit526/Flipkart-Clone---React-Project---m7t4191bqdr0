@@ -2,18 +2,16 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Box } from "@mui/material";
-
-// import Header from "./components/header/Header";
 import Header from "./Components/header/Header";
-// import Home from "./components/home/Home";
 import Home from "./Components/Home/Home";
 import Cart from "./Components/cart/Cart";
-// import DetailView from "./components/details/DetailView";
 import DetailView from "./Components/details/DetailView";
 import Shipping from "./Components/shipping/Shipping";
 import Context from "./context/Context";
+import Footer from "./Components/Footer/Footer";
 
 //=======================================function starts=======================================
+
 function App() {
   return (
     <Context>
@@ -27,6 +25,7 @@ function App() {
             <Route path="/shipping" element={<Shipping />} />
           </Routes>
         </Box>
+        <Footer />
       </Router>
     </Context>
   );
