@@ -70,6 +70,7 @@ const CartItem = ({ item, totalQuantity, totalprice }) => {
 
   const dispatch = useDispatch();
   return (
+    <>
     <Component>
       <LeftComponent>
         <img src={item.image} style={{ height: 110, width: 110 }} />
@@ -105,9 +106,10 @@ const CartItem = ({ item, totalQuantity, totalprice }) => {
         </Typography>
         <Box>{item.quantity}</Box>
         <Remove onClick={() => dispatch(removeItem(item.id))}>Remove</Remove>
-        {/* <Remove onClick={() => dispatch(removeAllItems())}>Remove All</Remove> */}
-      </Box>
+   </Box>
     </Component>
+            <Remove onClick={() => dispatch(removeAllItems())}>Remove All</Remove>
+    </>
   );
 };
 
