@@ -12,7 +12,7 @@ const LeftSidebar = (props) => {
                             <Box pl={'20px'} pr='20px' mt={'10px'} fontWeight='bold' fontSize='large'>
                                 <Flex align='center' justify='space-between'>
                                     <Text>Filters</Text>
-                                    {/* <Text onClick={()=>window. location. reload()} cursor='pointer' color='#2874F0' fontSize='12px'>{value.length>0?"CLEAR ALL":""}</Text> */}
+                                  
                                 </Flex>
                                 <Wrap spacing={1} mt='10px'>
                                 {value.map((size, i) => (

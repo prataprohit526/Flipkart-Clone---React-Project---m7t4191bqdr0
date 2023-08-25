@@ -1,15 +1,13 @@
-import React from 'react'
-import { Login } from './Login'
-import { Signup } from './SignUp'
+import React from "react";
+import { Login } from "./Login";
+import { Signup } from "./SignUp";
 
 const Register = () => {
   return (
     <div>
-    
-        <Login/>
-        
+      <Login />
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

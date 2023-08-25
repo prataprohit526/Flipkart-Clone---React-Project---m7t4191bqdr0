@@ -14,28 +14,7 @@ import { CartContext } from '../Context/CartContext';
 function Viewpage() {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-    // const product = [
-    //     {
-    //         brand: "HIGHLANDER",
-    //         category_id: 3,
-    //         category_name: "fashion",
-    //         image: "https://i.ibb.co/23StKfC/5e3aa027808d.jpg",
-    //         description: "Georgette Blend Stitched Flared/A-line Gown",
-    //         stars: 4.3,
-    //         ratings: "4,161 Ratings ",
-    //         reviews: " 310 Reviews",
-    //         warrant: "1 Year Manufacturer Warranty for Phone and 6 Months Warranty for In-Box Accessories",
-    //         new_price: 1799,
-    //         old_price: 2999,
-    //         discount: 40,
-    //         delivery_type: "Free delivery",
-    //         offer: "₹16,750",
-    //         offer2: " Off on Exchange",
-    //         hidden_stars: 4.3,
-    //         item_id: 1
-    //     }
-    // ]
-
+   
     const { SetCartData, carturl, getData } = useContext(CartContext)
 
     const { item_id } = useParams();
@@ -167,7 +146,7 @@ function Viewpage() {
                                     }
                                 }}
                                 />
-                                {/* <Img  maxH={{base:"500px",md:"300px", lg:"100%"}} mw='450px' m='auto' src={item.image} /> */}
+                                
                             </Box>
                             <Box p='15px' h='53px' bg="white" borderRadius={'50%'} marginLeft="1px" shadow={'base'}  > <FaHeart color="silver" size="25px" /> </Box>
                         </Box>

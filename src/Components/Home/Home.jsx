@@ -10,7 +10,7 @@ import TopOffers from "./homeComponents/TopOffers";
 import OfferBanner from "./homeComponents/OfferBanner";
 import CategoryBar from "./homeComponents/CategoryBar";
 import BannerOffer from "./homeComponents/BannerOffer";
-import BannerOffer2 from "./homeComponents/BannerOffer2";
+
 import { Box } from "@chakra-ui/react";
 import CategoryBarForMobile from "./homeComponents/CategoryBarForMobile";
 
@@ -25,7 +25,6 @@ const Home = () => {
       <Fashion />
       <Bestselling />
       <Appliances />
-      <BannerOffer2 />
       <Electronics />
       <Groceries />
       <Mobile />
