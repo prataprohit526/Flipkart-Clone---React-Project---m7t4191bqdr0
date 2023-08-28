@@ -273,31 +273,7 @@ const Navbar = () => {
                     </Flex>
                   )}
                   <hr margin="0px" />
-                  {/* <Flex
-                    cursor={"pointer"}
-                    h="49px"
-                    fontSize="14px"
-                    className="pop1"
-                  >
-                    <Center ml="10px">
-                      <HiUserCircle color="#2874f0" size="18px" />
-                    </Center>{" "}
-                    <Center ml="16px">My Profile</Center>
-                  </Flex>
-                  <hr /> */}
-                  {/* <Flex
-                    cursor={"pointer"}
-                    className="pop1"
-                    h="49px"
-                    fontSize="14px"
-                  >
-                    <Center ml="10px">
-                      <Image src={vikas} alt="dfd" />
-                    </Center>{" "}
-                    <Center ml="16px">Flipkart Plus Zone</Center>
-                  </Flex>
-                  <hr /> */}
-                  {/* orderpage */}
+
                   <NavLink to="/orderpage">
                     <Flex
                       cursor={"pointer"}
