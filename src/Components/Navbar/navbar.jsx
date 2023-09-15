@@ -89,17 +89,39 @@ const Navbar = () => {
 
   const [data, setData] = useState([]);
   const [searchVal, setSearchVal] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     fetchData(searchVal);
   }, [searchVal]);
 
   const fetchData = (searchVal) => {
-    fetch(`${url}?_limit=5&q=${searchVal}`)
+    fetch(`${url}?q=${searchVal}`)
       .then((res) => res.json())
       .then((res) => {
-        setData(res);
+        // Check if the API response is empty
+        if (res.length === 0) {
+          // Handle empty results here, e.g., display a message
+          setData([]);
+        } else {
+          // Display the fetched data
+          setData(res);
+        }
+      })
+      .catch((error) => {
+        // Handle errors here, e.g., display an error message
+        console.error("Error fetching data:", error);
+        setData([]);
       });
   };
+  useEffect(() => {
+    // Filter data based on user input
+    const filteredItems = data.filter((item) =>
+      item.description.toLowerCase().includes(searchVal.toLowerCase())
+    );
+    setFilteredData(filteredItems);
+  }, [data, searchVal]);
+
+  console.log(data);
   const debounce = (fn, timeout) => {
     let timerid;
     return () => {
@@ -208,7 +230,7 @@ const Navbar = () => {
                 bg="#fff"
                 boxShadow={"2px 3px 5px -1px rgb(0 0 0 / 50%)"}
               >
-                {data.map((item, index) => (
+                {filteredData.map((item, index) => (
                   <Box key={index}>
                     <NavLink to={`/products/view/${item.item_id}`}>
                       <Flex
@@ -224,13 +246,10 @@ const Navbar = () => {
                             maxH="30px"
                             maxW="32px"
                             src={item.image}
-                            // {item.thumbnail}
+                            alt={item.description}
                           />
                         </Box>
-                        <Box color={"#212121"}>
-                          {item.description}
-                          {/* {item.name} */}
-                        </Box>
+                        <Box color={"#212121"}>{item.description}</Box>
                       </Flex>
                     </NavLink>
                   </Box>
@@ -318,19 +337,7 @@ const Navbar = () => {
                     </Flex>
                   </NavLink>
                   <hr />
-                  {/* <Flex
-                    cursor={"pointer"}
-                    h="49px"
-                    fontSize="14px"
-                    className="pop1"
-                  >
-                    {" "}
-                    <Center ml="10px">
-                      <BsFillCreditCard2BackFill color="#2874f0" size="18px" />
-                    </Center>{" "}
-                    <Center ml="16px">Gift cards</Center>
-                  </Flex>
-                  <hr /> */}
+
                   {correct ? (
                     <Flex
                       onClick={handleLogout}
@@ -390,24 +397,6 @@ const Navbar = () => {
                 <PopoverArrow bg="white" />
 
                 <PopoverBody color="black" className="shade">
-                  {/* <Flex h="49px" fontSize="14px" className="pop1">
-                    {" "}
-                    <Center ml="10px">
-                      <BsBellFill color="#2874f0" size="18px" />
-                    </Center>{" "}
-                    <Center ml="16px">Notification Prefernces</Center>
-                  </Flex>{" "}
-                  <hr /> */}
-                  {/* <NavLink to="/Footer">
-                    <Flex h="49px" fontSize="14px" className="pop1">
-                      {" "}
-                      <Center ml="10px">
-                        <BsQuestionSquareFill color="#2874f0" size="18px" />
-                      </Center>{" "}
-                      <Center ml="16px">24x7 Customer care</Center>
-                    </Flex>
-                  </NavLink>{" "}
-                  <hr /> */}
                   <a
                     href="https://www.youtube.com/watch?v=ziM-O4vR3wQ"
                     target="_blank"
