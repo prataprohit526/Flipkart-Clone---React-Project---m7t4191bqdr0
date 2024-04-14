@@ -121,7 +121,7 @@ const Navbar = () => {
     setFilteredData(filteredItems);
   }, [data, searchVal]);
 
-  console.log(data);
+  // console.log(data);
   const debounce = (fn, timeout) => {
     let timerid;
     return () => {
